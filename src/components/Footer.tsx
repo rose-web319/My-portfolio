@@ -1,5 +1,5 @@
 import { Mail } from 'lucide-react';
-import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa6'; // Updated to include FaTwitter
+import { FaGithub } from 'react-icons/fa6'; // Updated to include FaTwitter
 
 export default function Footer() {
   const socialLinks = [

@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import {
   Code2,
   Database,
-  Cloud,
-  Smartphone,
   Palette,
   GitBranch,
 } from 'lucide-react';

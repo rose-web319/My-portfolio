@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { CalendarDays, MapPin, Briefcase } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 // Clean entry transition curve presets matching our layout animations
