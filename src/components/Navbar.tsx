@@ -3,7 +3,7 @@ import { Menu, X, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Download CV", href: "/Rose_Cv.pdf" },
+  { name: "Download Cv", href:"/Rose_Cv.pdf" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Tech Stack", href: "#tech" },
@@ -38,9 +38,7 @@ export default function Navbar() {
     ? "bg-zinc-950 border-zinc-800"
     : "bg-white border-gray-100";
 
-  const glassClasses = isDark 
-    ? "glass-dark" 
-    : "glass-light";
+  const glassClasses = isDark ? "glass-dark" : "glass-light";
 
   return (
     <motion.nav
@@ -54,15 +52,13 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo brand text */}
-          <motion.a 
-            href="#" 
+          <motion.a
+            href="#"
             className="text-lg font-semibold tracking-tight"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className={isDark ? "text-white" : "text-zinc-900"}>
-              AR
-            </span>
+            <span className={isDark ? "text-white" : "text-zinc-900"}>AR</span>
             <span className="text-accent">.</span>
           </motion.a>
 
@@ -81,6 +77,7 @@ export default function Navbar() {
                 {link.name}
               </motion.a>
             ))}
+
             <motion.button
               onClick={toggleTheme}
               className={`p-2 rounded-lg transition-colors ${
@@ -95,6 +92,15 @@ export default function Navbar() {
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </motion.button>
           </div>
+          <motion.a
+            href="/Rose_Cv.pdf"
+            download="Rose_Cv.pdf"
+            className=" sm:inline-flex items-center justify-center bg-accent hover:bg-accent-hover text-white px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-accent/20 cursor-none text-sm md:hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Download CV
+          </motion.a>
 
           {/* Mobile responsive buttons panel */}
           <div className="flex items-center space-x-3 md:hidden">
