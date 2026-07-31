@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* Custom variant for light mode toggle tracking */
+@custom-variant light (&:where(.light, .light *));
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  touch-action: manipulation;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  @apply bg-page-bg text-main-text transition-colors duration-300 selection:bg-accent selection:text-white;
+}
+
+/* --- DARK MODE (DEFAULT) & CONFIG MIGRATION --- */
+@theme {
+  /* Page Themes & Surface Semantics */
+  --color-page-bg: #050505;
+  --color-surface: #0a0a0a;
+  --color-border: #1a1a1a;
+  --color-muted: #9197a3;
+  --color-main-text: #ffffff;
+
+  /* Your Exact Bolt.new Color Palette Map labeled as Sage */
+  --color-sage-50: #f0fdf4;
+  --color-sage-100: #dcfce7;
+  --color-sage-200: #bbf7d0;
+  --color-sage-300: #86efac;
+  --color-sage-400: #4ade80;
+  --color-sage-500: #22c55e;
+  --color-sage-600: #16a34a;
+  --color-sage-700: #15803d;
+  --color-sage-800: #166534;
+  --color-sage-900: #14532d;
+
+  /* Standard Accent Mappings */
+  --color-accent: var(--color-sage-500);
+  --color-accent-hover: var(--color-sage-600);
+  --color-accent-light: var(--color-sage-400);
+  --color-accent-dark: var(--color-sage-700);
+
+  /* Animation Utilities Configuration */
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animate-fade-in: fade-in 0.4s ease-out forwards;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-typing-cursor: typing-cursor 1s step-end infinite;
+
+  /* Backdrop Blur Modifiers */
+  --backdrop-blur-xs: 2px;
+
+  /* Animation Keyframes Definition Mapping */
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    50% { box-shadow: 0 0 20px 4px rgba(22, 163, 74, 0.3); }
+  }
+  @keyframes typing-cursor {
+    0%, 100% { border-color: currentColor; }
+    50% { border-color: transparent; }
+  }
+}
+
+/* --- LIGHT MODE VARIANT OVERRIDES --- */
+:root.light {
+  --color-page-bg: #ffffff;
+  --color-surface: #f3f4f6;
+  --color-border: #e5e7eb;
+  --color-muted: #8a9099;
+  --color-main-text: #050505;
+
+  /* Accent alignment remains synced to your green palette values */
+  --color-accent: var(--color-sage-500);
+  --color-accent-hover: var(--color-sage-600);
+  --color-accent-light: var(--color-sage-400);
+  --color-accent-dark: var(--color-sage-700);
+}
+
+/* --- COMPONENT CLASSES MIGRATION --- */
+@utility glass-light {
+  @apply bg-white/70 backdrop-blur-md border-b border-gray-200/50;
+}
+
+@utility glass-dark {
+  @apply bg-zinc-950/70 backdrop-blur-md border-b border-zinc-800/50;
+}
+
+@utility card-glow {
+  @apply hover:shadow-[0_0_24px_rgba(22,163,74,0.3)] transition-shadow duration-300;
+}
+
+/* --- CUSTOM SCROLLBAR SYSTEM --- */
+::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-page-bg); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent); 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover); 
+}
+
+/* --- UTILITY CLASSES MIGRATION --- */
+@utility animate-delay-100 { animation-delay: 100ms; }
+@utility animate-delay-200 { animation-delay: 200ms; }
+@utility animate-delay-300 { animation-delay: 300ms; }
+@utility animate-delay-400 { animation-delay: 400ms; }
+@utility animate-delay-500 { animation-delay: 500ms; }
