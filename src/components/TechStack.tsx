@@ -11,7 +11,7 @@ const categories = [
   {
     title: 'Frontend',
     icon: Code2,
-    techs: ['React', 'Next.js',, 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    techs: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
   },
   {
     title: 'Backend',
